@@ -75,7 +75,8 @@ classdef RRTStar < handle
             self.tree.insert(source, 0, 0);
             eps = 10^(-3);
             findGoal = false;
-            goalIndex = 0;
+            goalIndex = 1;
+            cost = inf;
             for i=1:maxIterations
                 % Implement RRT iteration
                 numIterations = i;
