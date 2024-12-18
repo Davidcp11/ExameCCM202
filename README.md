@@ -50,10 +50,10 @@ The following test cases are provided:
 - **Test Case D:** A line of obstacles across the middle of the space.
 
 ## Usage
-
+Use the planPathRRT.m script to visualize the planning process for a specific test case:
+planPathRRT('a'); % Replace 'a' with 'b', 'c', or 'd' for other test cases
 ### Monte Carlo Simulation
 Run the `monteCarloBiRRT.m` script with the desired test case:
 ```matlab
 monteCarloBiRRT('a'); % Replace 'a' with 'b', 'c', or 'd' for other test cases
-Use the planPathRRT.m script to visualize the planning process for a specific test case:
-planPathRRT('a'); % Replace 'a' with 'b', 'c', or 'd' for other test cases
+
