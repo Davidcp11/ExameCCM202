@@ -51,9 +51,11 @@ The following test cases are provided:
 
 ## Usage
 Use the planPathRRT.m script to visualize the planning process for a specific test case:
+```matlab
 planPathRRT('a'); % Replace 'a' with 'b', 'c', or 'd' for other test cases
 ### Monte Carlo Simulation
+```
 Run the `monteCarloBiRRT.m` script with the desired test case:
 ```matlab
 monteCarloBiRRT('a'); % Replace 'a' with 'b', 'c', or 'd' for other test cases
-
+```
