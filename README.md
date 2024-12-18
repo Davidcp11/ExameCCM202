@@ -1,61 +1,89 @@
 # ExameCCM202
-# Bi-Directional Rapidly-Exploring Random Tree (BiRRT) Path Planning
+# Bi-Directional Rapidly-Exploring Random Tree (BiRRT)
 
-This repository implements the Bi-Directional Rapidly-Exploring Random Tree (BiRRT) algorithm for path planning in a 2D environment with obstacles. The repository provides tools for planning paths, evaluating the algorithm's performance through Monte Carlo simulations, and visualizing the results.
+This repository contains the implementation of the Bi-Directional Rapidly-Exploring Random Tree (BiRRT) algorithm for path planning in 2D environments with obstacles. It includes tools for simulation, performance analysis, and result visualization.
 
 ## Features
 - Implementation of the BiRRT algorithm for path planning.
 - Support for multiple test cases with different obstacle configurations.
-- Monte Carlo evaluation for algorithm performance analysis.
-- Visualization of trees, obstacles, and paths.
+- Monte Carlo simulation for performance analysis.
+- Visualization of trees, obstacles, and planned paths.
 
-## File Descriptions
+## Project Files
 
 ### `monteCarloBiRRT.m`
-This script runs a Monte Carlo simulation to evaluate the BiRRT algorithm across different test cases. Key functionalities include:
-- Running multiple iterations of the algorithm.
-- Gathering statistics such as the percentage of successful runs, mean path lengths, and the cost of found paths.
-- Printing results to the console for analysis.
+Runs Monte Carlo simulations to evaluate the performance of the BiRRT algorithm in different scenarios. Features:
+- Executes multiple runs of the algorithm.
+- Collects statistics such as success rate, average path lengths, and costs of the paths found.
+- Displays results in the console.
 
 ### `TreeNode.m`
-Defines a class for tree nodes used in the BiRRT algorithm. Each node stores:
+Class representing the nodes of the trees used in the BiRRT algorithm. Each node stores:
 - Position in the 2D space.
-- Index and parent index for path reconstruction.
-- Functions for extending the node towards a new position.
+- Identification and parent indices.
+- Function for extending towards a new position.
 
 ### `Tree.m`
-Represents a tree structure used in the RRT algorithm. Key methods include:
-- Inserting nodes into the tree.
-- Finding the nearest node to a given position.
-- Reconstructing paths from root to a specified node.
+Implements a tree data structure for the algorithm. Main methods:
+- Node insertion.
+- Finding the nearest node to a specified position.
+- Reconstructing paths from the root to a target node.
 
 ### `BiRRT.m`
-Implements the Bi-Directional RRT algorithm. Key features:
-- Supports sampling from free space with collision checking.
-- Extends trees in alternating directions.
-- Detects when the two trees connect to form a complete path.
-- Calculates path costs and reconstructs paths from source to goal.
+Class implementing the Bi-Directional RRT algorithm. Key features:
+- Sampling from free space with collision checking.
+- Alternating tree expansion in opposite directions.
+- Detecting connection between the trees to form a complete path.
+- Calculating cost and reconstructing the path from start to goal.
 
 ### `planPathRRT.m`
-A script that:
-- Plans a path using the BiRRT algorithm for a specified test case.
-- Animates the process of tree growth and path discovery.
-- Saves the resulting visualization in a user-specified format (`png` or `eps`).
+Script for:
+- Planning paths using the BiRRT algorithm in test scenarios.
+- Displaying animations of tree growth and path discovery.
+- Saving visualizations in `png` or `eps` formats.
 
-## Test Cases
-The following test cases are provided:
-- **Test Case A:** Single obstacle at the center of the space.
-- **Test Case B:** Multiple obstacles with varying positions.
-- **Test Case C:** Dense configuration of obstacles near the center.
+## Test Scenarios
+The following test cases are supported:
+- **Test Case A:** Single obstacle in the center of the space.
+- **Test Case B:** Multiple obstacles in various positions.
+- **Test Case C:** Dense obstacle configuration near the center.
 - **Test Case D:** A line of obstacles across the middle of the space.
 
 ## Usage
-Use the planPathRRT.m script to visualize the planning process for a specific test case:
-```matlab
-planPathRRT('a'); % Replace 'a' with 'b', 'c', or 'd' for other test cases
-```
+
 ### Monte Carlo Simulation
-Run the `monteCarloBiRRT.m` script with the desired test case:
+To run the Monte Carlo simulation, use the `monteCarloBiRRT.m` script:
 ```matlab
-monteCarloBiRRT('a'); % Replace 'a' with 'b', 'c', or 'd' for other test cases
+monteCarloBiRRT('a'); % Replace 'a' with 'b', 'c', or 'd' for other scenarios
 ```
+
+### Path Planning and Visualization
+To plan a path and visualize the process, use the `planPathRRT.m` script:
+```matlab
+planPathRRT('a'); % Replace 'a' with 'b', 'c', or 'd' for other scenarios
+```
+
+### Configurable Parameters
+- **`maxIterations`**: Maximum number of iterations during planning.
+- **`numRuns`**: Number of runs in the Monte Carlo simulation.
+- **`goalBias`**: Probability of sampling towards the goal.
+- **`delta`**: Step size for tree expansion.
+
+## Results
+The scripts generate statistics and graphs that include:
+- Percentage of successful runs.
+- Average length of the paths found.
+- Average cost of the paths.
+
+## Dependencies
+- MATLAB R2020b or later.
+
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Author
+Developed by David Costa and Marcos Maximo.
+
+## Acknowledgements
+Based on research on Rapidly-Exploring Random Trees (RRT) and BiRRT algorithms for robotics and motion planning.
+
