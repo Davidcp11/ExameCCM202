@@ -69,7 +69,7 @@ end
 fprintf('Percentage of solved instances: %g%%\n', 100 * numSolved / numRuns);
 fprintf('Mean length of the found paths: %f\n', mean(lengths));
 fprintf('Mean cost of the found paths: %f\n', mean(costs));
-fprintf('Std of length of the found paths: %f\n', std(lengths));
+fprintf('Std of length of the found paths: %f\n', std(costs));
 fprintf('Mean of number of iterations until stopping: %g\n', mean(numIterationss));
 fprintf('Std of number of iterations until stopping: %g\n', std(numIterationss));
 
