@@ -69,6 +69,80 @@ planPathRRT('a'); % Replace 'a' with 'b', 'c', or 'd' for other scenarios
 - **`goalBias`**: Probability of sampling towards the goal.
 - **`delta`**: Step size for tree expansion.
 
+# RRT* Algorithm for Path Planning
+
+This repository contains the implementation of the Rapidly-Exploring Random Tree Star (RRT*) algorithm for efficient path planning in 2D environments with obstacles. It includes functionality for planning paths, analyzing algorithm performance, and visualizing results.
+
+## Features
+- Implementation of the RRT* algorithm with cost optimization.
+- Support for multiple test cases with different obstacle configurations.
+- Monte Carlo simulation for performance evaluation.
+- Visualization of the tree, obstacles, and planned paths.
+
+## Project Files
+
+### `TreeNode.m`
+Class representing a node in the tree used by the RRT* algorithm. Each node contains:
+- Position in 2D space.
+- Index and parent index for path reconstruction.
+- Accumulated cost from the root to the node.
+- Methods for extending the node towards a new position.
+
+### `Tree.m`
+Class representing a tree data structure for the RRT* algorithm. Main methods include:
+- Inserting nodes into the tree.
+- Finding the nearest node to a specified position.
+- Reconstructing the path from the root to a given goal.
+- Selecting an optimal parent for a new node within a specified radius.
+- Rewiring the tree to reduce path costs.
+
+### `RRTStar.m`
+Class implementing the RRT* algorithm. Key functionalities:
+- Sampling from free space while avoiding collisions.
+- Extending the tree by adding new nodes.
+- Optimizing path costs by rewiring the tree.
+- Calculating the total cost of paths.
+- Generating a final path from source to goal.
+
+### `planPathRRT.m`
+Script for:
+- Planning a path using the RRT* algorithm for a specified test case.
+- Visualizing the tree growth and the final path.
+- Saving the results as a plot in `png` or `eps` formats.
+
+### `monteCarloRRTStar.m`
+Script for running Monte Carlo simulations to evaluate the RRT* algorithm. Features:
+- Multiple runs of the algorithm with random samples.
+- Collection of statistics such as success rates, path lengths, and computation costs.
+- Output of results to the console for analysis.
+
+## Test Scenarios
+The following test cases are included:
+- **Test Case A:** Single obstacle at the center of the space.
+- **Test Case B:** Multiple obstacles in varying configurations.
+- **Test Case C:** Dense obstacle arrangement near the center.
+- **Test Case D:** A line of obstacles dividing the space.
+
+## Usage
+
+### Monte Carlo Simulation
+Run the Monte Carlo simulation using the script `monteCarloRRTStar.m`:
+```matlab
+monteCarloRRTStar('a'); % Replace 'a' with 'b', 'c', or 'd' for other scenarios
+```
+
+### Path Planning and Visualization
+To plan a path and visualize the process, use the script `planPathRRT.m`:
+```matlab
+planPathRRT('a'); % Replace 'a' with 'b', 'c', or 'd' for other scenarios
+```
+
+### Configurable Parameters
+- **`maxIterations`**: Maximum number of iterations for path planning.
+- **`numRuns`**: Number of Monte Carlo simulation runs.
+- **`goalBias`**: Probability of sampling towards the goal.
+- **`delta`**: Step size for tree expansion.
+
 ## Results
 The scripts generate statistics and graphs that include:
 - Percentage of successful runs.
